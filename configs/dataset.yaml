@@ -1,0 +1,119 @@
+project:
+  name: fraud-retraining
+  random_seed: 42
+
+paths:
+  raw_dir: data/raw
+  manifest: data/raw/dataset_manifest.csv
+  profiling_dir: reports/data_profiling
+  figures_dir: reports/figures
+
+datasets:
+  ieee_cis:
+    enabled: true
+    role: primary
+
+    transaction_path: data/raw/ieee_cis/train_transaction.csv
+    identity_path: data/raw/ieee_cis/train_identity.csv
+
+    id_column: TransactionID
+    time_column: TransactionDT
+    target_column: isFraud
+    amount_column: TransactionAmt
+
+    expected_transaction_rows: 590540
+    expected_transaction_columns: 394
+
+    expected_identity_rows: 144233
+    expected_identity_columns: 41
+
+    time_unit: seconds
+    seconds_per_day: 86400
+
+    use_identity: false
+
+    excluded_features:
+      - TransactionID
+      - TransactionDT
+      - isFraud
+
+    no_card_id_columns:
+      - card1
+      - card2
+      - card3
+      - card4
+      - card5
+      - card6
+      - addr1
+      - addr2
+      - P_emaildomain
+      - R_emaildomain
+
+  baf:
+    enabled: true
+    role: secondary
+
+    directory: data/raw/baf
+    target_column: fraud_bool
+    time_column: month
+    time_unit: month
+
+    variants:
+      - Base.csv
+      - Variant I.csv
+      - Variant II.csv
+      - Variant III.csv
+      - Variant IV.csv
+      - Variant V.csv
+
+    expected_rows_per_variant: 1000000
+
+temporal_split:
+  warmup_start_day: 1
+  warmup_end_day: 30
+
+  validation_start_day: 31
+  validation_end_day: 86
+
+  test_start_day: 87
+  test_end_day: 177
+
+  block_size_days: 7
+
+simulation:
+  label_delay_days:
+    - 0
+    - 7
+    - 14
+    - 30
+
+  training_window_days:
+    - 30
+    - 60
+    - 90
+
+profiling:
+  missing_rate_thresholds:
+    - 0.2
+    - 0.5
+    - 0.8
+    - 0.95
+
+  min_fraud_per_block_warning: 50
+
+drift_eda:
+  feature_set: NoCardID
+
+  reference_phase: warmup
+
+  psi_bins: 10
+  psi_epsilon: 0.000001
+
+  psi_moderate_threshold: 0.1
+  psi_high_threshold: 0.25
+
+  min_non_missing_samples: 100
+
+  ks_max_samples: 10000
+
+  top_k_features: 15

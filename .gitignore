@@ -10,3 +10,6 @@ data/simulations/
 __pycache__/
 .venv/
 .ipynb_checkpoints/
+
+# Generated reports - ignore by default
+reports/*
