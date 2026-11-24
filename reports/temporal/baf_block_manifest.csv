@@ -1,0 +1,37 @@
+﻿variant,block_id,phase,start_month,end_month,start_time,end_time_exclusive,duration_months
+Base.csv,1,validation,2,2,2,3,1
+Base.csv,2,validation,3,3,3,4,1
+Base.csv,3,test,4,4,4,5,1
+Base.csv,4,test,5,5,5,6,1
+Base.csv,5,test,6,6,6,7,1
+Base.csv,6,test,7,7,7,8,1
+Variant I.csv,1,validation,2,2,2,3,1
+Variant I.csv,2,validation,3,3,3,4,1
+Variant I.csv,3,test,4,4,4,5,1
+Variant I.csv,4,test,5,5,5,6,1
+Variant I.csv,5,test,6,6,6,7,1
+Variant I.csv,6,test,7,7,7,8,1
+Variant II.csv,1,validation,2,2,2,3,1
+Variant II.csv,2,validation,3,3,3,4,1
+Variant II.csv,3,test,4,4,4,5,1
+Variant II.csv,4,test,5,5,5,6,1
+Variant II.csv,5,test,6,6,6,7,1
+Variant II.csv,6,test,7,7,7,8,1
+Variant III.csv,1,validation,2,2,2,3,1
+Variant III.csv,2,validation,3,3,3,4,1
+Variant III.csv,3,test,4,4,4,5,1
+Variant III.csv,4,test,5,5,5,6,1
+Variant III.csv,5,test,6,6,6,7,1
+Variant III.csv,6,test,7,7,7,8,1
+Variant IV.csv,1,validation,2,2,2,3,1
+Variant IV.csv,2,validation,3,3,3,4,1
+Variant IV.csv,3,test,4,4,4,5,1
+Variant IV.csv,4,test,5,5,5,6,1
+Variant IV.csv,5,test,6,6,6,7,1
+Variant IV.csv,6,test,7,7,7,8,1
+Variant V.csv,1,validation,2,2,2,3,1
+Variant V.csv,2,validation,3,3,3,4,1
+Variant V.csv,3,test,4,4,4,5,1
+Variant V.csv,4,test,5,5,5,6,1
+Variant V.csv,5,test,6,6,6,7,1
+Variant V.csv,6,test,7,7,7,8,1

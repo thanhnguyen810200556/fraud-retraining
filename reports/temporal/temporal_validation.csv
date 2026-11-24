@@ -1,0 +1,8 @@
+﻿dataset,rows,evaluation_blocks,validation_blocks,test_blocks,status
+IEEE-CIS,590540,21,8,13,passed
+BAF Base.csv,1000000,6,2,4,passed
+BAF Variant I.csv,1000000,6,2,4,passed
+BAF Variant II.csv,1000000,6,2,4,passed
+BAF Variant III.csv,1000000,6,2,4,passed
+BAF Variant IV.csv,1000000,6,2,4,passed
+BAF Variant V.csv,1000000,6,2,4,passed

@@ -1,0 +1,59 @@
+{
+  "version": "1.0.0",
+  "interval_convention": "[start_time, end_time_exclusive)",
+  "ieee_cis": {
+    "time_origin": 86400,
+    "time_unit": "seconds",
+    "seconds_per_day": 86400,
+    "day_index_base": 1,
+    "day_formula": "floor((TransactionDT - time_origin) / 86400) + 1",
+    "first_day": 1,
+    "last_day": 183,
+    "warmup_days": [
+      1,
+      30
+    ],
+    "validation_days": [
+      31,
+      86
+    ],
+    "test_days": [
+      87,
+      177
+    ],
+    "tail_days": [
+      178,
+      183
+    ],
+    "block_size_days": 7,
+    "validation_blocks": 8,
+    "test_blocks": 13,
+    "warmup_block_id": 0,
+    "tail_block_id": -1,
+    "include_tail_in_evaluation": false,
+    "primary_feature_set": "NoCardID"
+  },
+  "baf": {
+    "time_unit": "month",
+    "first_month": 0,
+    "last_month": 7,
+    "warmup_months": [
+      0,
+      1
+    ],
+    "validation_months": [
+      2,
+      3
+    ],
+    "test_months": [
+      4,
+      7
+    ],
+    "block_size_months": 1,
+    "validation_blocks": 2,
+    "test_blocks": 4,
+    "warmup_block_id": 0,
+    "primary_feature_set": "CommonFeatures",
+    "within_month_order_available": false
+  }
+}

@@ -94,6 +94,11 @@ datasets:
       - 7
 
 temporal_split:
+  version: "1.0.0"
+
+  time_origin_strategy: first_transaction
+  expected_time_origin: 86400
+
   warmup_start_day: 1
   warmup_end_day: 30
 
@@ -104,6 +109,36 @@ temporal_split:
   test_end_day: 177
 
   block_size_days: 7
+
+  expected_first_day: 1
+  expected_last_day: 182
+
+  expected_validation_blocks: 8
+  expected_test_blocks: 13
+
+  warmup_block_id: 0
+  tail_block_id: -1
+
+  include_tail_in_evaluation: false
+
+baf_temporal_split:
+  version: "1.0.0"
+
+  warmup_start_month: 0
+  warmup_end_month: 1
+
+  validation_start_month: 2
+  validation_end_month: 3
+
+  test_start_month: 4
+  test_end_month: 7
+
+  block_size_months: 1
+
+  expected_validation_blocks: 2
+  expected_test_blocks: 4
+
+  warmup_block_id: 0
 
 simulation:
   label_delay_days:
