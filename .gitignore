@@ -1,0 +1,12 @@
+# Raw datasets
+data/raw/*
+
+# Generated datasets
+data/interim/
+data/processed/
+data/simulations/
+
+# Python
+__pycache__/
+.venv/
+.ipynb_checkpoints/
