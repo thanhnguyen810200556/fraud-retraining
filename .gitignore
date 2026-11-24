@@ -5,6 +5,7 @@ data/raw/*
 data/interim/
 data/processed/
 data/simulations/
+data/temporal/
 
 # Python
 __pycache__/
