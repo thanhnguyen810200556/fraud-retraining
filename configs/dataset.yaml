@@ -8,6 +8,13 @@ paths:
   profiling_dir: reports/data_profiling
   figures_dir: reports/figures
 
+  processed_dir: data/processed
+  preprocessing_report_dir: reports/preprocessing
+  features_config: configs/features.yaml
+
+  temporal_dir: data/temporal
+  temporal_report_dir: reports/temporal
+
 datasets:
   ieee_cis:
     enabled: true
@@ -49,6 +56,12 @@ datasets:
       - P_emaildomain
       - R_emaildomain
 
+    expected_full_features: 391
+    expected_nocardid_features: 381
+
+    processed_full_path: data/processed/ieee_full.parquet
+    processed_nocardid_path: data/processed/ieee_nocardid.parquet
+
   baf:
     enabled: true
     role: secondary
@@ -67,6 +80,18 @@ datasets:
       - Variant V.csv
 
     expected_rows_per_variant: 1000000
+
+    processed_directory: data/processed/baf
+
+    expected_months:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
 
 temporal_split:
   warmup_start_day: 1
@@ -117,3 +142,21 @@ drift_eda:
   ks_max_samples: 10000
 
   top_k_features: 15
+
+preprocessing:
+  version: "1.0.0"
+
+  missing_strategy: preserve
+  outlier_strategy: preserve
+  class_balance_strategy: preserve
+
+  float_dtype: float64
+  categorical_storage_dtype: string
+
+  parquet_engine: pyarrow
+  parquet_compression: snappy
+
+  fail_on_duplicate_ids: true
+  fail_on_invalid_labels: true
+  fail_on_invalid_time: true
+  fail_on_infinite_values: true

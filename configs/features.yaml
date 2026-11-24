@@ -1,0 +1,79 @@
+ieee_cis:
+  primary_feature_set: NoCardID
+
+  feature_sets:
+    FullFeatures:
+      description: >
+        All transaction features excluding transaction ID,
+        transaction time and ground-truth label.
+
+    NoCardID:
+      description: >
+        FullFeatures excluding ten card, address and
+        email-related identifier features.
+
+  categorical_features:
+    - ProductCD
+    - card1
+    - card2
+    - card3
+    - card4
+    - card5
+    - card6
+    - addr1
+    - addr2
+    - P_emaildomain
+    - R_emaildomain
+    - M1
+    - M2
+    - M3
+    - M4
+    - M5
+    - M6
+    - M7
+    - M8
+    - M9
+
+  temporal_metadata:
+    - day
+    - block_id
+    - phase
+
+  simulation_metadata:
+    - label_delay_days
+    - label_available_time
+
+  runtime_metadata:
+    - model_version
+    - prediction_score
+    - drift_score
+    - retrain_flag
+
+baf:
+  categorical_features:
+    - payment_type
+    - employment_status
+    - housing_status
+    - source
+    - device_os
+
+  metadata:
+    - record_id
+    - month
+    - block_id
+    - phase
+
+  target_column: fraud_bool
+
+  sentinel_audit:
+    candidate_values:
+      - -1
+
+    candidate_columns:
+      - prev_address_months_count
+      - current_address_months_count
+      - bank_months_count
+      - session_length_in_minutes
+      - device_distinct_emails_8w
+
+  sentinel_replacement: {}

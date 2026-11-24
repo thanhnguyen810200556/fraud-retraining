@@ -9,3 +9,5 @@ PyYAML
 jupyter
 ipykernel
 tqdm
+pyarrow
+pytest

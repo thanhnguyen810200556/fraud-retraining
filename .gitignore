@@ -10,6 +10,13 @@ data/simulations/
 __pycache__/
 .venv/
 .ipynb_checkpoints/
+*.pyc
 
 # Generated reports - ignore by default
 reports/*
+
+# Pytest cache
+.pytest_cache/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
