@@ -6,6 +6,7 @@ data/interim/
 data/processed/
 data/simulations/
 data/temporal/
+data/simulations/
 
 # Python
 __pycache__/

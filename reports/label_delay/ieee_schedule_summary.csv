@@ -1,0 +1,5 @@
+dataset,delay_days,n_records,n_pre_labeled,min_event_time,max_event_time,min_label_available_time,max_label_available_time,file
+ieee_cis,0,590540,134339,86400,15811131,86400,15811131,data\simulations\label_schedules\ieee\d0.parquet
+ieee_cis,7,590540,134339,86400,15811131,691200,16415931,data\simulations\label_schedules\ieee\d7.parquet
+ieee_cis,14,590540,134339,86400,15811131,1296000,17020731,data\simulations\label_schedules\ieee\d14.parquet
+ieee_cis,30,590540,134339,86400,15811131,2678399,18403131,data\simulations\label_schedules\ieee\d30.parquet

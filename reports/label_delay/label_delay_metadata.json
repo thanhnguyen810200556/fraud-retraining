@@ -1,0 +1,275 @@
+{
+  "stage": "label_delay_simulation",
+  "created_at_utc": "2026-11-25T03:41:37.312133+00:00",
+  "config": {
+    "path": "configs/dataset.yaml",
+    "sha256": "5be057361b0a2f5ce51b7b39d50996c432c57968d1f7efc12041cfb3b579b2d6"
+  },
+  "source_code": {
+    "path": "src/label_delay.py",
+    "sha256": "738dafd3980fe065a63554ad75fc1d93f122a9ede92fbed65a514ecbe92983ec"
+  },
+  "ieee_cis": {
+    "simulation_version": "1.0.0",
+    "time_unit": "seconds",
+    "delay_unit": "days",
+    "delay_scenarios": [
+      0,
+      7,
+      14,
+      30
+    ],
+    "training_windows": [
+      30,
+      60,
+      90
+    ],
+    "warmup_strategy": "pre_labeled",
+    "training_window_strategy": "recent_event",
+    "label_availability_rule": "strict_before",
+    "deployment_time": 2678400,
+    "include_tail_in_schedule": true,
+    "include_tail_in_training": false,
+    "n_evaluation_blocks": 21,
+    "n_schedules": 4,
+    "n_availability_records": 84,
+    "n_training_records": 252
+  },
+  "baf": {
+    "simulation_version": "1.0.0",
+    "time_unit": "months",
+    "delay_unit": "months",
+    "variants": [
+      "base",
+      "variant_i",
+      "variant_ii",
+      "variant_iii",
+      "variant_iv",
+      "variant_v"
+    ],
+    "delay_scenarios": [
+      0,
+      1,
+      2
+    ],
+    "training_windows": [
+      2,
+      3
+    ],
+    "warmup_strategy": "pre_labeled",
+    "training_window_strategy": "recent_event",
+    "label_release_strategy": "month_end_plus_delay",
+    "label_availability_rule": "at_or_before",
+    "n_schedules": 18,
+    "n_availability_records": 108,
+    "n_training_records": 216
+  },
+  "retrospective_metrics": {
+    "column_prefix": "offline_",
+    "allowed_for_online_policy": false
+  },
+  "validation": {
+    "n_checks": 139,
+    "n_passed": 139,
+    "n_failed": 0
+  },
+  "input_artifacts": [
+    {
+      "path": "data\\processed\\ieee_nocardid.parquet",
+      "size_bytes": 75451000,
+      "sha256": "a2ada15a90a2237b37dda2a7f3f341a37191a6ae266e6fb9c0cd664f83786e07"
+    },
+    {
+      "path": "data\\temporal\\ieee_temporal_index.parquet",
+      "size_bytes": 5294902,
+      "sha256": "588f472c8d6c88845934439fd58e3033ebb35b559f8e3a4125026a08ac05f7bb"
+    },
+    {
+      "path": "reports\\temporal\\ieee_block_manifest.csv",
+      "size_bytes": 853,
+      "sha256": "aa71d1d46210af3976fb6c07782394a5d23564de71b8678af43127bd32c260ef"
+    },
+    {
+      "path": "reports\\temporal\\baf_block_manifest.csv",
+      "size_bytes": 1313,
+      "sha256": "ddbdeb077e26d1d2f75bcd4c2230fc5c4d64553bbb42869e012a3e7ac5cf8b1d"
+    },
+    {
+      "path": "data\\processed\\baf\\base.parquet",
+      "size_bytes": 73748408,
+      "sha256": "2d03e647d8631a4f8876912bcfbb0c18f4265897e198b5d9b74bdbf5ee0318c3"
+    },
+    {
+      "path": "data\\processed\\baf\\variant_i.parquet",
+      "size_bytes": 73684330,
+      "sha256": "4d852898161474dfc17e5942081cf929c589e325e416b09cb94196846b833c41"
+    },
+    {
+      "path": "data\\processed\\baf\\variant_ii.parquet",
+      "size_bytes": 73737217,
+      "sha256": "dfde15e7636ef4377a431d36938965c6ecf4674a494f1ced8cea7afb50211e0e"
+    },
+    {
+      "path": "data\\processed\\baf\\variant_iii.parquet",
+      "size_bytes": 90331644,
+      "sha256": "ac22582037a321be1c74a8e947e5761b9984f7df36e399d90e755f1acf2a2690"
+    },
+    {
+      "path": "data\\processed\\baf\\variant_iv.parquet",
+      "size_bytes": 73777918,
+      "sha256": "aee23c20a64f45079d05794bf34696b6a3e1b715a4dc9967416795d7cad91380"
+    },
+    {
+      "path": "data\\processed\\baf\\variant_v.parquet",
+      "size_bytes": 90267111,
+      "sha256": "7ec450612f3878d5fad889a98cbdd2b0234c5751590c34e48c54ffeebd148730"
+    },
+    {
+      "path": "data\\temporal\\baf\\base_temporal_index.parquet",
+      "size_bytes": 4288865,
+      "sha256": "89e559d45732a788134023513d35cc1d863fed1a70a6961d7dc60cd7f6060f84"
+    },
+    {
+      "path": "data\\temporal\\baf\\variant_i_temporal_index.parquet",
+      "size_bytes": 4288865,
+      "sha256": "e99cf69fca4a111211d070f62d0b05865060b76f7207d05ea9f1005b90d07102"
+    },
+    {
+      "path": "data\\temporal\\baf\\variant_ii_temporal_index.parquet",
+      "size_bytes": 4288865,
+      "sha256": "07152957596a428ea5ca05459061e1d204e3e449af9e17db7378226167c198d1"
+    },
+    {
+      "path": "data\\temporal\\baf\\variant_iii_temporal_index.parquet",
+      "size_bytes": 4288865,
+      "sha256": "27f01a84eccdd00f614750156bba3b410a87159b2a8d1a217f4f18e9904be128"
+    },
+    {
+      "path": "data\\temporal\\baf\\variant_iv_temporal_index.parquet",
+      "size_bytes": 4288865,
+      "sha256": "6400134053098bae2fa1b25986d3e7e6a78fd1f3b985206c6f7c23efaf176ddc"
+    },
+    {
+      "path": "data\\temporal\\baf\\variant_v_temporal_index.parquet",
+      "size_bytes": 4288865,
+      "sha256": "68cdfa2f88c8d750e894a8e3264365270651486195f1749467eb8e049cee5506"
+    }
+  ],
+  "schedule_artifacts": [
+    {
+      "path": "data\\simulations\\label_schedules\\ieee\\d0.parquet",
+      "size_bytes": 7951729,
+      "sha256": "2db01c2f55e67ffbf78cabb55ab4ec535c20a9647f15860ce3bde46e60e7d98e"
+    },
+    {
+      "path": "data\\simulations\\label_schedules\\ieee\\d7.parquet",
+      "size_bytes": 7831910,
+      "sha256": "7bbf430f5d33c9f5d799b301720d1d8dda708f3d012bab1705e8ed3e221936ab"
+    },
+    {
+      "path": "data\\simulations\\label_schedules\\ieee\\d14.parquet",
+      "size_bytes": 7678652,
+      "sha256": "637dc51f86ef1fbb5c6af18a133c4909b86166f1fd3c5dffdc4d9d8793cf5b04"
+    },
+    {
+      "path": "data\\simulations\\label_schedules\\ieee\\d30.parquet",
+      "size_bytes": 7414747,
+      "sha256": "d1c8f4bd992c53bcadff44310c8bb3d2e6d98d025d1913a14eca16b293f4674e"
+    },
+    {
+      "path": "data\\simulations\\label_schedules\\baf\\base\\d0.parquet",
+      "size_bytes": 4305416,
+      "sha256": "31e0047660fbad0416766e0fd956ed43893be3bec05bc3ad6ffb38d4b97fa784"
+    },
+    {
+      "path": "data\\simulations\\label_schedules\\baf\\base\\d1.parquet",
+      "size_bytes": 4305409,
+      "sha256": "2ac9365b79f0e6e436e1fc6864cf3966f3d51637909b186de2cb9738809dbe35"
+    },
+    {
+      "path": "data\\simulations\\label_schedules\\baf\\base\\d2.parquet",
+      "size_bytes": 4305409,
+      "sha256": "c5e3474af6eab059918688c337aea1a5b0c08a211da8c9f234def525ef30d2f1"
+    },
+    {
+      "path": "data\\simulations\\label_schedules\\baf\\variant_i\\d0.parquet",
+      "size_bytes": 4305416,
+      "sha256": "69a0ca35ea1eed832923ed567887abd6861b0af5aee0bc16cebbb38eaf262de8"
+    },
+    {
+      "path": "data\\simulations\\label_schedules\\baf\\variant_i\\d1.parquet",
+      "size_bytes": 4305409,
+      "sha256": "ee764e909af5a5ba2f865e549ec6510e62c259aadd8feefff9c46ff64fabdbe8"
+    },
+    {
+      "path": "data\\simulations\\label_schedules\\baf\\variant_i\\d2.parquet",
+      "size_bytes": 4305409,
+      "sha256": "3a866e96ea005d14500ec9c4b0f7af5b0fc38de7726c8d02440297cadb93c5c3"
+    },
+    {
+      "path": "data\\simulations\\label_schedules\\baf\\variant_ii\\d0.parquet",
+      "size_bytes": 4305416,
+      "sha256": "56aa27fb4cfcf39bded7270d0924cd7dcdd0cda41e2fb261f51cf06ad5a740c6"
+    },
+    {
+      "path": "data\\simulations\\label_schedules\\baf\\variant_ii\\d1.parquet",
+      "size_bytes": 4305409,
+      "sha256": "39d8643f5fb35526e4d13c931238a34514d02b327c46fc89436ab7dd115eaea2"
+    },
+    {
+      "path": "data\\simulations\\label_schedules\\baf\\variant_ii\\d2.parquet",
+      "size_bytes": 4305409,
+      "sha256": "a7a6cf25dffb39e72359294e6e977b203d8257be8c592be7f23b9e8f9c02c8d5"
+    },
+    {
+      "path": "data\\simulations\\label_schedules\\baf\\variant_iii\\d0.parquet",
+      "size_bytes": 4305417,
+      "sha256": "b44ce440b4493aa55b4721c5bbf7b764413ce4ab4abbc26ce38c36209a0e2ead"
+    },
+    {
+      "path": "data\\simulations\\label_schedules\\baf\\variant_iii\\d1.parquet",
+      "size_bytes": 4305411,
+      "sha256": "1f33098edfaa68bb2ab6e9027829f24037f451e8f8e640175e747199c8906b4f"
+    },
+    {
+      "path": "data\\simulations\\label_schedules\\baf\\variant_iii\\d2.parquet",
+      "size_bytes": 4305411,
+      "sha256": "aa6ff684d35e9b0a04d0acfe4f39405c7d12b44d6e721048c768106e12bc9f5d"
+    },
+    {
+      "path": "data\\simulations\\label_schedules\\baf\\variant_iv\\d0.parquet",
+      "size_bytes": 4305418,
+      "sha256": "4b6fe2ccea735d9949e1d1d6a3515970a05049c34b13f76c3ba57a40b7ebd784"
+    },
+    {
+      "path": "data\\simulations\\label_schedules\\baf\\variant_iv\\d1.parquet",
+      "size_bytes": 4305412,
+      "sha256": "297c11f04c72e972db20b1d9e2e2adb2bef8c70e8813f0f07e0fe0e94080acef"
+    },
+    {
+      "path": "data\\simulations\\label_schedules\\baf\\variant_iv\\d2.parquet",
+      "size_bytes": 4305412,
+      "sha256": "9684d6a2638fd77ecfa62a85206dc438016558a06be6105bc038f315e29a3a4b"
+    },
+    {
+      "path": "data\\simulations\\label_schedules\\baf\\variant_v\\d0.parquet",
+      "size_bytes": 4305417,
+      "sha256": "952520f4ce281f3d4784dfab9f77dfbfd58ad8a0e614eb44fd34595f88c165e9"
+    },
+    {
+      "path": "data\\simulations\\label_schedules\\baf\\variant_v\\d1.parquet",
+      "size_bytes": 4305411,
+      "sha256": "1dc6d3600a436c69c099b6b75fb8357d04cda7c3c4285d749e7d0f5ee2a61358"
+    },
+    {
+      "path": "data\\simulations\\label_schedules\\baf\\variant_v\\d2.parquet",
+      "size_bytes": 4305411,
+      "sha256": "33572deada090528c23ff83aff3408749062f3617fe54eb77bbb4f2742017767"
+    }
+  ],
+  "environment": {
+    "python": "3.13.7",
+    "pandas": "3.1.1",
+    "numpy": "2.5.5"
+  }
+}

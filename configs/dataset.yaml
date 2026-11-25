@@ -15,6 +15,9 @@ paths:
   temporal_dir: data/temporal
   temporal_report_dir: reports/temporal
 
+  label_schedule_dir: data/simulations/label_schedules
+  label_delay_report_dir: reports/label_delay
+
 datasets:
   ieee_cis:
     enabled: true
@@ -141,6 +144,13 @@ baf_temporal_split:
   warmup_block_id: 0
 
 simulation:
+  version: "1.0.0"
+
+  label_delay_strategy: fixed
+
+  warmup_strategy: pre_labeled
+  training_window_strategy: recent_event
+
   label_delay_days:
     - 0
     - 7
@@ -152,14 +162,47 @@ simulation:
     - 60
     - 90
 
-profiling:
-  missing_rate_thresholds:
-    - 0.2
-    - 0.5
-    - 0.8
-    - 0.95
+  primary_label_delay_days: 7
+  primary_training_window_days: 60
 
-  min_fraud_per_block_warning: 50
+  label_availability_rule: strict_before
+  decision_time: block_start
+
+  allow_partial_history: true
+
+  include_tail_in_schedule: true
+  include_tail_in_training: false
+
+  insufficient_training_data: skip_retrain
+
+baf_simulation:
+  version: "1.0.0"
+
+  label_delay_strategy: fixed
+
+  warmup_strategy: pre_labeled
+  training_window_strategy: recent_event
+
+  label_delay_months:
+    - 0
+    - 1
+    - 2
+
+  training_window_months:
+    - 2
+    - 3
+
+  primary_label_delay_months: 1
+  primary_training_window_months: 3
+
+  label_availability_rule: at_or_before
+  label_release_strategy: month_end_plus_delay
+
+  decision_time: block_start
+
+  allow_partial_history: true
+
+  insufficient_training_data: skip_retrain
 
 drift_eda:
   feature_set: NoCardID

@@ -1,0 +1,5 @@
+delay_days,same_initial_ids,num_transactions,num_fraud,num_legitimate,fraud_rate_pct,has_both_classes,status
+0,True,134339,3401,130938,2.5316549922211715,True,available
+7,True,134339,3401,130938,2.5316549922211715,True,available
+14,True,134339,3401,130938,2.5316549922211715,True,available
+30,True,134339,3401,130938,2.5316549922211715,True,available
