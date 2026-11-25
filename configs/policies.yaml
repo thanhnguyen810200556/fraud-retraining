@@ -1,0 +1,56 @@
+experiment:
+  version: "1.0.0"
+
+  dataset: ieee_cis
+  feature_set: NoCardID
+
+  # Label delays and training window come from
+  # configs/dataset.yaml (simulation section).
+  window_days: 60
+
+  evaluation_phases:
+    - validation
+    - test
+
+model:
+  name: lightgbm
+
+  params:
+    n_estimators: 300
+    learning_rate: 0.05
+    num_leaves: 63
+    subsample: 0.8
+    subsample_freq: 1
+    colsample_bytree: 0.5
+    min_child_samples: 100
+    random_state: 42
+    n_jobs: -1
+    verbose: -1
+
+policies:
+  periodic:
+    # Retrain every 1, 2 or 4 blocks (7, 14, 28 days).
+    # Intervals 2 and 4 give budgets close to Random-k
+    # with k = 10 and k = 5.
+    interval_blocks:
+      - 1
+      - 2
+      - 4
+
+  random_k:
+    budgets:
+      - 5
+      - 10
+      - 15
+
+    num_seeds: 50
+    base_seed: 2026
+
+    label_delay_days:
+      - 7
+      - 14
+      - 30
+
+paths:
+  report_dir: reports/policies
+  figure_dir: reports/figures/policies

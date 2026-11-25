@@ -3,11 +3,11 @@ pandas
 pyarrow
 scipy
 scikit-learn
+lightgbm
 matplotlib
 seaborn
 PyYAML
 jupyter
 ipykernel
 tqdm
-pyarrow
 pytest
