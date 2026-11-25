@@ -204,6 +204,15 @@ baf_simulation:
 
   insufficient_training_data: skip_retrain
 
+profiling:
+  missing_rate_thresholds:
+    - 0.2
+    - 0.5
+    - 0.8
+    - 0.95
+
+  min_fraud_per_block_warning: 50
+
 drift_eda:
   feature_set: NoCardID
 

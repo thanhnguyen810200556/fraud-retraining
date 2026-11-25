@@ -108,6 +108,7 @@ Chọn kernel `Python (fraud-retraining)` và chạy Run All từng notebook the
 | 5      | `05_preprocessing`          | Chuẩn hóa dữ liệu, tạo Parquet và feature schema |
 | 6      | `06_temporal_partitioning`  | Tạo temporal indexes và block manifests          |
 | 7      | `07_label_delay_simulation` | Tạo label schedules và thống kê dữ liệu có nhãn  |
+| 8      | `08_baseline_policies`      | Baseline NoRetrain, Periodic, Random-k (T11–T16) |
 
 Số thứ tự notebook không đồng nhất với sáu bước nghiệp vụ Dataset Preparation. Không bỏ qua notebook nếu chưa có các artifact đầu vào tương ứng. Nếu notebook không tìm thấy module `src`, kiểm tra working directory và kernel; không sửa đường dẫn dữ liệu tùy tiện. Chạy:
 

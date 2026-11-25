@@ -1,0 +1,6 @@
+﻿check,passed
+21 evaluation blocks,True
+M0 identical across delays,True
+NoRetrain never retrains,True
+Periodic retrains at every block with new labels,True
+Random-k retrains exactly k times,True
