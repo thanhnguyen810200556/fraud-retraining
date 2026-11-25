@@ -8,7 +8,7 @@
     "day_index_base": 1,
     "day_formula": "floor((TransactionDT - time_origin) / 86400) + 1",
     "first_day": 1,
-    "last_day": 183,
+    "last_day": 182,
     "warmup_days": [
       1,
       30
@@ -17,13 +17,9 @@
       31,
       86
     ],
-    "test_days": [
-      87,
-      177
-    ],
     "tail_days": [
       178,
-      183
+      182
     ],
     "block_size_days": 7,
     "validation_blocks": 8,

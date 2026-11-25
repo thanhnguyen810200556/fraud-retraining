@@ -47,7 +47,7 @@ IEEE-CIS được lựa chọn làm bộ dữ liệu thực nghiệm chính, tro
 Nhóm thống nhất các quyết định tiền xử lý sau:
 
 - Giữ nguyên dữ liệu raw và lưu dữ liệu chuẩn hóa dưới định dạng Parquet.
-- Ghép transaction và identity của IEEE-CIS bằng phép left join theo TransactionID.
+- Sử dụng dữ liệu transaction của IEEE-CIS, không ghép bảng identity trong cấu hình thực nghiệm hiện tại (use_identity: false).
 - Kiểm tra tính duy nhất của khóa, tính hợp lệ của nhãn và trường thời gian.
 - Giữ nguyên missing values và phân phối lớp tự nhiên.
 - Không chuẩn hóa thang đo hoặc loại bỏ outliers một cách tự động.
@@ -63,7 +63,7 @@ IEEE-CIS được phân chia thành bốn giai đoạn: Warmup (ngày 1–30), V
 
 Validation gồm 8 khối tuần với 169.439 giao dịch và Test gồm 13 khối tuần với 274.406 giao dịch. Tail được giữ lại trong dữ liệu chuẩn hóa nhưng không đưa vào kết quả đánh giá chính.
 
-BAF được phân chia theo tháng, sử dụng tháng 0 làm Warmup, tháng 1–2 làm Validation và tháng 3–7 làm Test. Không tạo timestamp ngày giả cho BAF.
+BAF được phân chia theo tháng, sử dụng tháng 0–1 làm Warmup, tháng 2–3 làm Validation và tháng 4–7 làm Test. Không tạo timestamp ngày giả cho BAF.
 
 ### 8. Overall Assessment
 
